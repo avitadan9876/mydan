@@ -1,0 +1,32 @@
+{
+  "name": "mydan-site",
+  "version": "1.0.0",
+  "description": "MyDan - פלטפורמה מתקדמת לניהול פרויקטים",
+  "main": "index.html",
+  "scripts": {
+    "start": "http-server -p 8000 -o",
+    "dev": "http-server -p 8000 -o -c-1",
+    "build": "echo 'No build process needed for static HTML'",
+    "test": "echo 'No tests specified'"
+  },
+  "keywords": [
+    "project-management",
+    "dashboard",
+    "html",
+    "css",
+    "javascript"
+  ],
+  "author": "MyDan Team",
+  "license": "MIT",
+  "devDependencies": {
+    "http-server": "^14.1.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/yourusername/mydan-site.git"
+  },
+  "bugs": {
+    "url": "https://github.com/yourusername/mydan-site/issues"
+  },
+  "homepage": "https://github.com/yourusername/mydan-site#readme"
+} 

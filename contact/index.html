@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang='he' dir='rtl'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>צור קשר - MyDan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .contact-section {
+            background: white;
+            padding: 3rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .contact-section h1 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+            text-align: center;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 2rem;
+        }
+        
+        .contact-form {
+            background: #f8f9fa;
+            padding: 2rem;
+            border-radius: 10px;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-btn {
+            background: #667eea;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .contact-info {
+            padding: 2rem;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+        }
+        
+        .contact-icon {
+            width: 50px;
+            height: 50px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            margin-left: 1rem;
+        }
+        
+        .contact-details h3 {
+            color: #2c3e50;
+            margin-bottom: 0.5rem;
+        }
+        
+        .contact-details p {
+            color: #7f8c8d;
+        }
+        
+        .back-home {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .back-home a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .back-home a:hover {
+            background: #5a6fd8;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">MyDan</div>
+            <p>הפלטפורמה המתקדמת לניהול פרויקטים</p>
+            <ul class="nav-links">
+                <li><a href="../index.html">דף הבית</a></li>
+                <li><a href="../about/index.html">אודות</a></li>
+                <li><a href="../docs/index.html">תיעוד</a></li>
+                <li><a href="../support/index.html">תמיכה</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="contact-section">
+            <h1>צור קשר</h1>
+            <p style="text-align: center; color: #7f8c8d; margin-bottom: 2rem;">אנחנו כאן לעזור! שלח לנו הודעה ונחזור אליך בהקדם האפשרי.</p>
+            
+            <div class="contact-grid">
+                <div class="contact-form">
+                    <form id="contactForm">
+                        <div class="form-group">
+                            <label for="name">שם מלא:</label>
+                            <input type="text" id="name" name="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">אימייל:</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="phone">טלפון:</label>
+                            <input type="tel" id="phone" name="phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="subject">נושא:</label>
+                            <select id="subject" name="subject" required>
+                                <option value="">בחר נושא</option>
+                                <option value="support">תמיכה טכנית</option>
+                                <option value="sales">מכירות</option>
+                                <option value="partnership">שותפות</option>
+                                <option value="general">כללי</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">הודעה:</label>
+                            <textarea id="message" name="message" required placeholder="כתוב את ההודעה שלך כאן..."></textarea>
+                        </div>
+                        
+                        <button type="submit" class="submit-btn">שלח הודעה</button>
+                    </form>
+                </div>
+                
+                <div class="contact-info">
+                    <h2 style="color: #2c3e50; margin-bottom: 2rem;">פרטי התקשרות</h2>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📧</div>
+                        <div class="contact-details">
+                            <h3>אימייל</h3>
+                            <p>info@mydan.co</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📞</div>
+                        <div class="contact-details">
+                            <h3>טלפון</h3>
+                            <p>03-1234567</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">📍</div>
+                        <div class="contact-details">
+                            <h3>כתובת</h3>
+                            <p>רחוב הרצל 123, תל אביב</p>
+                        </div>
+                    </div>
+                    
+                    <div class="contact-item">
+                        <div class="contact-icon">⏰</div>
+                        <div class="contact-details">
+                            <h3>שעות פעילות</h3>
+                            <p>א'-ה': 9:00-18:00<br>ו': 9:00-13:00</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <div class="back-home">
+            <a href="../index.html">← חזרה לדף הבית</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MyDan. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // כאן תוכל להוסיף לוגיקת שליחה אמיתית
+            console.log('נתוני הטופס:', data);
+            
+            alert('תודה! ההודעה שלך נשלחה בהצלחה. נחזור אליך בהקדם האפשרי.');
+            this.reset();
+        });
+    </script>
+</body>
+</html>

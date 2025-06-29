@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+<html lang='he' dir='rtl'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>תיעוד - MyDan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .docs-layout {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .sidebar {
+            background: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            height: fit-content;
+            position: sticky;
+            top: 2rem;
+        }
+        
+        .sidebar h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+        
+        .sidebar-nav {
+            list-style: none;
+        }
+        
+        .sidebar-nav li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .sidebar-nav a {
+            color: #555;
+            text-decoration: none;
+            padding: 0.5rem 0;
+            display: block;
+            transition: color 0.3s ease;
+        }
+        
+        .sidebar-nav a:hover,
+        .sidebar-nav a.active {
+            color: #667eea;
+            font-weight: 500;
+        }
+        
+        .main-content {
+            background: white;
+            padding: 3rem;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .main-content h1 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2.5rem;
+        }
+        
+        .main-content h2 {
+            color: #2c3e50;
+            margin: 2rem 0 1rem;
+            font-size: 1.8rem;
+        }
+        
+        .main-content h3 {
+            color: #2c3e50;
+            margin: 1.5rem 0 1rem;
+            font-size: 1.4rem;
+        }
+        
+        .main-content p {
+            margin-bottom: 1rem;
+            color: #555;
+        }
+        
+        .code-block {
+            background: #f8f9fa;
+            border: 1px solid #e9ecef;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1rem 0;
+            font-family: 'Courier New', monospace;
+            overflow-x: auto;
+        }
+        
+        .info-box {
+            background: #e3f2fd;
+            border: 1px solid #2196f3;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .warning-box {
+            background: #fff3e0;
+            border: 1px solid #ff9800;
+            border-radius: 8px;
+            padding: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .step-list {
+            list-style: none;
+            counter-reset: step-counter;
+        }
+        
+        .step-list li {
+            counter-increment: step-counter;
+            margin-bottom: 1rem;
+            padding: 1rem;
+            background: #f8f9fa;
+            border-radius: 8px;
+            position: relative;
+        }
+        
+        .step-list li::before {
+            content: counter(step-counter);
+            background: #667eea;
+            color: white;
+            width: 25px;
+            height: 25px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            right: 1rem;
+            top: 1rem;
+            font-weight: bold;
+        }
+        
+        .back-home {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .back-home a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .back-home a:hover {
+            background: #5a6fd8;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .docs-layout {
+                grid-template-columns: 1fr;
+            }
+            
+            .sidebar {
+                position: static;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">MyDan</div>
+            <p>הפלטפורמה המתקדמת לניהול פרויקטים</p>
+            <ul class="nav-links">
+                <li><a href="../index.html">דף הבית</a></li>
+                <li><a href="../about/index.html">אודות</a></li>
+                <li><a href="../contact/index.html">צור קשר</a></li>
+                <li><a href="../support/index.html">תמיכה</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <div class="docs-layout">
+            <aside class="sidebar">
+                <h3>תוכן עניינים</h3>
+                <ul class="sidebar-nav">
+                    <li><a href="#getting-started" class="active">התחלה מהירה</a></li>
+                    <li><a href="#dashboard">לוח בקרה</a></li>
+                    <li><a href="#projects">ניהול פרויקטים</a></li>
+                    <li><a href="#payments">תשלומים</a></li>
+                    <li><a href="#users">ניהול משתמשים</a></li>
+                    <li><a href="#api">API</a></li>
+                    <li><a href="#faq">שאלות נפוצות</a></li>
+                </ul>
+            </aside>
+
+            <div class="main-content">
+                <h1>תיעוד MyDan</h1>
+                <p>ברוכים הבאים לתיעוד המלא של פלטפורמת MyDan. כאן תמצאו את כל המידע הנדרש כדי להתחיל ולהשתמש במערכת בצורה יעילה.</p>
+
+                <section id="getting-started">
+                    <h2>התחלה מהירה</h2>
+                    <p>MyDan היא פלטפורמה מתקדמת לניהול פרויקטים המאפשרת לכם לנהל פרויקטים, משתמשים ותשלומים במקום אחד.</p>
+                    
+                    <div class="info-box">
+                        <strong>טיפ:</strong> לפני שתתחילו, ודאו שיש לכם חשבון פעיל במערכת.
+                    </div>
+
+                    <h3>שלבי התחלה</h3>
+                    <ol class="step-list">
+                        <li>היכנסו למערכת באמצעות פרטי ההתחברות שלכם</li>
+                        <li>עברו ללוח הבקרה כדי לראות סקירה כללית</li>
+                        <li>צרו פרויקט חדש או הצטרפו לפרויקט קיים</li>
+                        <li>הגדירו את ההרשאות והתפקידים של הצוות</li>
+                    </ol>
+                </section>
+
+                <section id="dashboard">
+                    <h2>לוח בקרה</h2>
+                    <p>לוח הבקרה הוא המרכז של הפעילות שלכם במערכת. כאן תוכלו לראות:</p>
+                    
+                    <ul>
+                        <li>סטטיסטיקות כלליות</li>
+                        <li>פרויקטים פעילים</li>
+                        <li>פעילות אחרונה</li>
+                        <li>תשלומים ממתינים</li>
+                    </ul>
+
+                    <div class="code-block">
+                        // דוגמה לנתוני לוח בקרה
+                        {
+                            "total_projects": 12,
+                            "active_projects": 8,
+                            "completed_tasks": 156,
+                            "pending_payments": 3
+                        }
+                    </div>
+                </section>
+
+                <section id="projects">
+                    <h2>ניהול פרויקטים</h2>
+                    <p>ניהול פרויקטים ב-MyDan מאפשר לכם ליצור, לערוך ולעקוב אחר פרויקטים בצורה יעילה.</p>
+
+                    <h3>יצירת פרויקט חדש</h3>
+                    <ol class="step-list">
+                        <li>לחצו על "פרויקט חדש" בלוח הבקרה</li>
+                        <li>מלאו את פרטי הפרויקט (שם, תיאור, תאריך יעד)</li>
+                        <li>הוסיפו חברי צוות לפרויקט</li>
+                        <li>הגדירו משימות ומטרות</li>
+                    </ol>
+
+                    <div class="warning-box">
+                        <strong>חשוב:</strong> ודאו שכל חברי הצוות קיבלו הרשאות מתאימות לפרויקט.
+                    </div>
+                </section>
+
+                <section id="payments">
+                    <h2>ניהול תשלומים</h2>
+                    <p>מערכת התשלומים מאפשרת לכם לנהל את כל התשלומים והחשבוניות במקום אחד.</p>
+
+                    <h3>תכונות עיקריות</h3>
+                    <ul>
+                        <li>יצירת חשבוניות אוטומטית</li>
+                        <li>מעקב אחר תשלומים</li>
+                        <li>דוחות פיננסיים</li>
+                        <li>אינטגרציה עם מערכות תשלום</li>
+                    </ul>
+                </section>
+
+                <section id="users">
+                    <h2>ניהול משתמשים</h2>
+                    <p>ניהול משתמשים מאפשר לכם לשלוט בהרשאות ובגישה למערכת.</p>
+
+                    <h3>סוגי משתמשים</h3>
+                    <ul>
+                        <li><strong>מנהל מערכת:</strong> גישה מלאה לכל הפונקציות</li>
+                        <li><strong>מנהל פרויקט:</strong> ניהול פרויקטים ספציפיים</li>
+                        <li><strong>חבר צוות:</strong> גישה מוגבלת לפרויקטים מוקצים</li>
+                        <li><strong>לקוח:</strong> צפייה בלבד בפרויקטים רלוונטיים</li>
+                    </ul>
+                </section>
+
+                <section id="api">
+                    <h2>API</h2>
+                    <p>MyDan מספקת API מלא לשילוב עם מערכות חיצוניות.</p>
+
+                    <div class="code-block">
+                        // דוגמה לבקשה API
+                        GET /api/v1/projects
+                        Authorization: Bearer YOUR_API_KEY
+                        
+                        Response:
+                        {
+                            "projects": [
+                                {
+                                    "id": 1,
+                                    "name": "פרויקט לדוגמה",
+                                    "status": "active"
+                                }
+                            ]
+                        }
+                    </div>
+                </section>
+
+                <section id="faq">
+                    <h2>שאלות נפוצות</h2>
+                    
+                    <h3>איך אוכל לשנות סיסמה?</h3>
+                    <p>לכו להגדרות החשבון ולחצו על "שנה סיסמה". תצטרכו להזין את הסיסמה הנוכחית ואת הסיסמה החדשה.</p>
+
+                    <h3>איך אוכל להוסיף משתמש חדש?</h3>
+                    <p>מנהלי מערכת יכולים להוסיף משתמשים חדשים דרך דף "ניהול משתמשים" בלוח הבקרה.</p>
+
+                    <h3>איך אוכל לייצא דוחות?</h3>
+                    <p>בכל דף דוחות יש כפתור "ייצא" שמאפשר להוריד את הנתונים בפורמטים שונים (PDF, Excel, CSV).</p>
+                </section>
+            </div>
+        </div>
+
+        <div class="back-home">
+            <a href="../index.html">← חזרה לדף הבית</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MyDan. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script>
+        // ניווט חלק בתיעוד
+        document.querySelectorAll('.sidebar-nav a').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                // הסרת הקלאס active מכל הקישורים
+                document.querySelectorAll('.sidebar-nav a').forEach(a => a.classList.remove('active'));
+                
+                // הוספת הקלאס active לקישור הנוכחי
+                this.classList.add('active');
+                
+                // מעבר לסקשן המתאים
+                const targetId = this.getAttribute('href').substring(1);
+                const targetSection = document.getElementById(targetId);
+                
+                if (targetSection) {
+                    targetSection.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>

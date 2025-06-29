@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang='he' dir='rtl'>
+<head>
+    <meta charset='UTF-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <title>תמיכה - MyDan</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: bold;
+            margin-bottom: 1rem;
+        }
+        
+        .nav-links {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+            gap: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            transition: opacity 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            opacity: 0.8;
+        }
+        
+        .support-hero {
+            background: white;
+            padding: 4rem 0;
+            text-align: center;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .support-hero h1 {
+            font-size: 3rem;
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .support-hero p {
+            font-size: 1.2rem;
+            color: #7f8c8d;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        .support-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .support-card {
+            background: white;
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .support-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .support-icon {
+            width: 80px;
+            height: 80px;
+            background: #667eea;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .support-card h3 {
+            color: #2c3e50;
+            margin-bottom: 1rem;
+        }
+        
+        .support-card p {
+            color: #7f8c8d;
+            margin-bottom: 1.5rem;
+        }
+        
+        .support-btn {
+            background: #667eea;
+            color: white;
+            padding: 0.8rem 1.5rem;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+            display: inline-block;
+        }
+        
+        .support-btn:hover {
+            background: #5a6fd8;
+        }
+        
+        .ticket-section {
+            background: white;
+            padding: 3rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .ticket-section h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .ticket-form {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            color: #555;
+            font-weight: 500;
+        }
+        
+        input, textarea, select {
+            width: 100%;
+            padding: 1rem;
+            border: 2px solid #e1e5e9;
+            border-radius: 8px;
+            font-size: 1rem;
+            transition: border-color 0.3s ease;
+        }
+        
+        input:focus, textarea:focus, select:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        textarea {
+            resize: vertical;
+            min-height: 120px;
+        }
+        
+        .submit-ticket-btn {
+            background: #27ae60;
+            color: white;
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background 0.3s ease;
+            width: 100%;
+        }
+        
+        .submit-ticket-btn:hover {
+            background: #229954;
+        }
+        
+        .faq-section {
+            background: white;
+            padding: 3rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .faq-section h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+        
+        .faq-item {
+            border-bottom: 1px solid #ecf0f1;
+            padding: 1.5rem 0;
+        }
+        
+        .faq-item:last-child {
+            border-bottom: none;
+        }
+        
+        .faq-question {
+            color: #2c3e50;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            color: #7f8c8d;
+            display: none;
+            padding-top: 1rem;
+        }
+        
+        .faq-answer.active {
+            display: block;
+        }
+        
+        .toggle-icon {
+            font-size: 1.2rem;
+            transition: transform 0.3s ease;
+        }
+        
+        .toggle-icon.active {
+            transform: rotate(180deg);
+        }
+        
+        .contact-info {
+            background: white;
+            padding: 3rem;
+            margin: 2rem 0;
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            text-align: center;
+        }
+        
+        .contact-info h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+        }
+        
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+        }
+        
+        .contact-item {
+            padding: 1rem;
+        }
+        
+        .contact-item h3 {
+            color: #667eea;
+            margin-bottom: 0.5rem;
+        }
+        
+        .back-home {
+            text-align: center;
+            margin: 2rem 0;
+        }
+        
+        .back-home a {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 1rem 2rem;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: bold;
+            transition: background 0.3s ease;
+        }
+        
+        .back-home a:hover {
+            background: #5a6fd8;
+        }
+        
+        footer {
+            background: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="logo">MyDan</div>
+            <p>הפלטפורמה המתקדמת לניהול פרויקטים</p>
+            <ul class="nav-links">
+                <li><a href="../index.html">דף הבית</a></li>
+                <li><a href="../about/index.html">אודות</a></li>
+                <li><a href="../contact/index.html">צור קשר</a></li>
+                <li><a href="../docs/index.html">תיעוד</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="support-hero">
+            <h1>צריכים עזרה?</h1>
+            <p>הצוות שלנו כאן כדי לעזור לכם בכל שאלה או בעיה. אנחנו זמינים 24/7 כדי להבטיח חוויית משתמש מעולה.</p>
+        </section>
+
+        <div class="support-grid">
+            <div class="support-card">
+                <div class="support-icon">📚</div>
+                <h3>מדריכים וסרטונים</h3>
+                <p>גשו למדריכים מפורטים וסרטוני הדרכה שיעזרו לכם להבין את המערכת</p>
+                <a href="../docs/index.html" class="support-btn">למדריכים</a>
+            </div>
+            
+            <div class="support-card">
+                <div class="support-icon">❓</div>
+                <h3>שאלות נפוצות</h3>
+                <p>מצאו תשובות מהירות לשאלות הנפוצות ביותר בקרב המשתמשים</p>
+                <a href="#faq" class="support-btn">שאלות נפוצות</a>
+            </div>
+            
+            <div class="support-card">
+                <div class="support-icon">💬</div>
+                <h3>צ'אט חי</h3>
+                <p>דברו עם נציג תמיכה בזמן אמת וקבלו עזרה מיידית</p>
+                <a href="#" class="support-btn">התחל צ'אט</a>
+            </div>
+            
+            <div class="support-card">
+                <div class="support-icon">📧</div>
+                <h3>שלחו פנייה</h3>
+                <p>שלחו פנייה מפורטת ונקבל תשובה תוך 24 שעות</p>
+                <a href="#ticket" class="support-btn">שלח פנייה</a>
+            </div>
+        </div>
+
+        <section id="ticket" class="ticket-section">
+            <h2>שלחו פניית תמיכה</h2>
+            <form class="ticket-form" id="supportForm">
+                <div class="form-group">
+                    <label for="name">שם מלא:</label>
+                    <input type="text" id="name" name="name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">אימייל:</label>
+                    <input type="email" id="email" name="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="subject">נושא הפנייה:</label>
+                    <select id="subject" name="subject" required>
+                        <option value="">בחר נושא</option>
+                        <option value="technical">בעיה טכנית</option>
+                        <option value="billing">בעיית חיוב</option>
+                        <option value="feature">בקשת תכונה</option>
+                        <option value="general">כללי</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="priority">דחיפות:</label>
+                    <select id="priority" name="priority" required>
+                        <option value="">בחר דחיפות</option>
+                        <option value="low">נמוכה</option>
+                        <option value="medium">בינונית</option>
+                        <option value="high">גבוהה</option>
+                        <option value="urgent">דחופה</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">תיאור הבעיה:</label>
+                    <textarea id="message" name="message" required placeholder="תארו את הבעיה או השאלה שלכם בפירוט..."></textarea>
+                </div>
+                
+                <button type="submit" class="submit-ticket-btn">שלח פנייה</button>
+            </form>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <h2>שאלות נפוצות</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    איך אוכל לשנות את הסיסמה שלי?
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>לכו להגדרות החשבון ולחצו על "שנה סיסמה". תצטרכו להזין את הסיסמה הנוכחית ואת הסיסמה החדשה. הסיסמה החדשה חייבת להכיל לפחות 8 תווים.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    איך אוכל להוסיף משתמש חדש לפרויקט?
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>בדף הפרויקט, לחצו על "ניהול צוות" ואז על "הוסף משתמש". הזינו את האימייל של המשתמש החדש ובחרו את ההרשאות המתאימות.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    איך אוכל לייצא דוחות?
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>בכל דף דוחות יש כפתור "ייצא" בפינה הימנית העליונה. תוכלו לבחור בין פורמטים שונים: PDF, Excel, או CSV.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    מה קורה אם שכחתי את הסיסמה?
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>לחצו על "שכחתי סיסמה" בדף ההתחברות. הזינו את האימייל שלכם ותקבלו הוראות לאיפוס הסיסמה.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFAQ(this)">
+                    איך אוכל לשנות את שפת המערכת?
+                    <span class="toggle-icon">▼</span>
+                </div>
+                <div class="faq-answer">
+                    <p>לכו להגדרות החשבון ולחצו על "הגדרות שפה". תוכלו לבחור בין עברית, אנגלית ועוד שפות זמינות.</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="contact-info">
+            <h2>פרטי התקשרות לתמיכה</h2>
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <h3>📞 טלפון</h3>
+                    <p>03-1234567</p>
+                    <p>א'-ה': 9:00-18:00</p>
+                </div>
+                <div class="contact-item">
+                    <h3>📧 אימייל</h3>
+                    <p>support@mydan.co</p>
+                    <p>תשובה תוך 24 שעות</p>
+                </div>
+                <div class="contact-item">
+                    <h3>💬 צ'אט חי</h3>
+                    <p>זמין 24/7</p>
+                    <p>תשובה מיידית</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="back-home">
+            <a href="../index.html">← חזרה לדף הבית</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 MyDan. כל הזכויות שמורות.</p>
+        </div>
+    </footer>
+
+    <script>
+        // פונקציה לפתיחה וסגירה של שאלות נפוצות
+        function toggleFAQ(element) {
+            const answer = element.nextElementSibling;
+            const icon = element.querySelector('.toggle-icon');
+            
+            if (answer.classList.contains('active')) {
+                answer.classList.remove('active');
+                icon.classList.remove('active');
+            } else {
+                answer.classList.add('active');
+                icon.classList.add('active');
+            }
+        }
+
+        // טיפול בטופס פניית תמיכה
+        document.getElementById('supportForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const formData = new FormData(this);
+            const data = Object.fromEntries(formData);
+            
+            // כאן תוכל להוסיף לוגיקת שליחה אמיתית
+            console.log('נתוני פניית התמיכה:', data);
+            
+            alert('תודה! פניית התמיכה שלכם נשלחה בהצלחה. נחזור אליכם בהקדם האפשרי.');
+            this.reset();
+        });
+
+        // ניווט חלק לסקשנים
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
